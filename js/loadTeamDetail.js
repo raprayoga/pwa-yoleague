@@ -1,12 +1,12 @@
 function loadTeamDetail(id) {
   $.ajax({
-      headers: { 'X-Auth-Token': '182fc46d0d134107b4260af19fc6581e' },
-      url: `https://api.football-data.org/v2/teams/${id}`,
-      dataType: 'json',
-      type: 'GET',
-      fail: () => alert('request failed'),
-      beforeSend: () => {
-        $("main").html(`
+    headers: { "X-Auth-Token": "182fc46d0d134107b4260af19fc6581e" },
+    url: `https://api.football-data.org/v2/teams/${id}`,
+    dataType: "json",
+    type: "GET",
+    fail: () => alert("request failed"),
+    beforeSend: () => {
+      $("main").html(`
          <div class="row center-align" style="margin-top: 200px;">
            <div class="preloader-wrapper big active">
              <div class="spinner-layer spinner-blue">
@@ -20,21 +20,24 @@ function loadTeamDetail(id) {
              </div>
            </div>
          </div>
-        `)
-     },
-      success: data => {
+        `);
+    },
+    success: (data) => {
       console.log(data);
       if (data.length === 0) {
-          $('main').append("<h2> DATA NOT FOUND </h2>")
+        $("main").append("<h2> DATA NOT FOUND </h2>");
       } else {
         // Error Handling
-        if ( data.crestUrl == null ) logo = `<h2 class="data-detail">LOGO NOT FOUND</h2>`;
+        if (data.crestUrl == null)
+          logo = `<h2 class="data-detail">LOGO NOT FOUND</h2>`;
         else logo = data.crestUrl;
 
-        if ( !data.activeCompetitions.length ) competition = "Data not found";
-        else competition = data.activeCompetitions[data.activeCompetitions.length-1].name;
-            
-        $('main').html(`
+        if (!data.activeCompetitions.length) competition = "Data not found";
+        else
+          competition =
+            data.activeCompetitions[data.activeCompetitions.length - 1].name;
+
+        $("main").html(`
           <div class="container">
             <div class="row center-align">
               <div class="col s12 m12 logo-detail">
@@ -107,19 +110,19 @@ function loadTeamDetail(id) {
               </div>
               <div id="squad" class="col s12">
               
-        `)
+        `);
 
-        if ( !data.squad.length ) $('#squad').append("DATA NOT FOUND");
+        if (!data.squad.length) $("#squad").append("DATA NOT FOUND");
         else {
-          data.squad.forEach(data => {
-            if ( !data.position ) position = "Manager";
+          data.squad.forEach((data) => {
+            if (!data.position) position = "Manager";
             else position = data.position;
 
-            $('#squad').append(`
+            $("#squad").append(`
             <div class="col s12 m3">
             <div class="card">
             <div class="card-image waves-effect waves-block waves-light team-detail">
-            <img src="../img/squad.svg">
+            <img src="img/squad.svg">
             </div>
             <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">${data.name}<i class="material-icons right">more_vert</i></span>
@@ -137,18 +140,18 @@ function loadTeamDetail(id) {
             </div>
             </div>
             </div>
-            `)
+            `);
           });
         }
 
-        $('main').append(`
+        $("main").append(`
             </div>  
             </div>
           </div>
-        `)
-        
-        $('.tabs').tabs();
+        `);
+
+        $(".tabs").tabs();
       }
-    }
+    },
   });
 }
