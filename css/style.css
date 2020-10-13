@@ -1,0 +1,272 @@
+body {
+  min-height: 800px;
+  font-family: "Rokkitt", Helvetica, sans-serif;
+  position: relative;
+}
+
+#landing-main {
+  background-image: linear-gradient(to bottom, rgb(144, 243, 248) , rgb(214, 255, 248));
+  min-height: 1000px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Cloud Animation */
+.cloud-1, .cloud-2, .cloud-3, .cloud-4, .cloud-5, .cloud-6, .cloud-7, .cloud-8{
+  position: absolute;
+  animation-name: toRight1;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.cloud-1{
+  width: 3%;
+  top: 5%;
+  left: 75%;
+  animation-duration: 1100s;
+}
+
+.cloud-2{
+  width: 7%;
+  top: 13%;
+  left: 30%;
+  animation-duration: 700s;
+}
+
+.cloud-3{
+  width: 20%;
+  top: 35%;
+  left: 40%;
+  animation-duration: 400s;
+  z-index: 3;
+}
+
+.cloud-4{
+  width: 30%;
+  top: 45%;
+  left: 60%;
+  animation-duration: 150s;
+  z-index: 4;
+}
+
+.cloud-5{
+  width: 5%;
+  top: 22%;
+  left: 70%;
+  animation-duration: 950s;
+}
+
+.cloud-6{
+  width: 8%;
+  top: 30%;
+  left: 20%;
+  animation-duration: 600s;
+}
+
+.cloud-7{
+  width: 8%;
+  top: 25%;
+  left: 90%;
+  animation-duration: 1000s;
+  z-index: 1;
+}
+
+.cloud-8{
+  width: 6%;
+  top: 20%;
+  left: 90%;
+  animation-duration: 1200s;
+  z-index: 2;
+}
+/* End of Cloud Animation */
+
+#sea {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15%;
+  background-color: rgb(127, 225, 255);
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: rgb(144, 243, 248);
+}
+
+nav ul li a {
+  text-shadow: 1px 1px 3px rgb(31, 31, 31);
+}
+
+.goal-image {
+  width: 100%;
+}
+
+.welocme-landing {
+  position: relative;
+  z-index: 5;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgb(31, 31, 31);
+  color: white;
+  font-size: x-large;
+  padding-top: 8%;
+}
+
+#bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(214, 255, 248);
+  z-index: 99;
+}
+
+#bottom-nav i {
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+}
+
+#bottom-nav a {
+  text-decoration: none;
+  color: rgb(161, 161, 161);
+}
+
+.container {
+  margin: 70px auto 70px;
+}
+
+.title-background h4 {
+  color: rgb(18, 14, 255);
+}
+
+.title-background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.title-background h4::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 38, 255);
+  position: absolute;
+  animation: getAround 2s infinite;
+}
+
+.title-background h4::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 225, 255);
+  position: absolute;
+  animation: getAround 2s 200ms infinite;
+}
+
+.title-background::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: rgb(86, 255, 241);
+  position: absolute;
+  animation: getAround 2s 350ms infinite;
+}
+
+.card-image {
+  padding: 5px;
+  height: 200px;
+}
+
+.card-image img {
+  height: 100%;
+}
+
+.card {
+  height: 350px;
+}
+
+#developer {
+  background-image: url("../img/Confetti-Doodles.svg");
+  background-attachment: fixed;
+}
+
+#support-by img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#support-by {
+  margin-bottom: 200px;
+}
+
+footer {
+  height: 200px;
+  width: 100%;
+  background-color: rgb(127, 225, 255);
+  padding: 30px;
+  position: absolute;
+  bottom: -300px;
+}
+
+footer img {
+  width: 70px;
+}
+
+.team-detail:hover {
+  cursor: pointer;
+}
+
+.squad {
+  height: 70%;
+}
+
+.logo-detail {
+  position: relative;
+}
+
+
+@keyframes getAround {
+  0% {left: 0; top: 0;}
+  50% {left: 0; top: 110%;}
+  100% {left: 0; top: 0;}
+}
+
+@keyframes toRight1 {
+  from {}
+  to {left: 0px;}
+}
+
+@media only screen and (max-width: 600px) {
+  #landing-main {
+    min-height: 600px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+  #bottom-nav {
+    display: flex;
+  }
+}
+
+@font-face{
+  /* https://fonts.google.com/specimen/Shadows+Into+Light?selection.family=Shadows+Into+Light */
+  font-family: 'Rokkitt'; 
+  src: url(../asset/Rokkitt-SemiBold.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
